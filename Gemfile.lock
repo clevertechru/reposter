@@ -171,6 +171,7 @@ GEM
       multi_json (~> 1.3)
       oauth2 (~> 0.9.3)
       omniauth (~> 1.2)
+    pg (0.17.1)
     polyglot (0.3.3)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -193,7 +194,12 @@ GEM
       activesupport (= 3.2.15)
       bundler (~> 1.0)
       railties (= 3.2.15)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
     rails_layout (1.0.5)
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (3.2.15)
       actionpack (= 3.2.15)
       activesupport (= 3.2.15)
@@ -294,8 +300,10 @@ DEPENDENCIES
   nested_form
   omniauth
   omniauth-google-oauth2
+  pg
   quiet_assets
   rails (= 3.2.15)
+  rails_12factor
   rails_layout
   rb-fchange
   rb-fsevent
