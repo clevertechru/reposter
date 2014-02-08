@@ -1,5 +1,39 @@
-%h3 User
-%p
-  User: #{@user.name}
-%p
-  Email: #{@user.email if @user.email}
+.row
+  .col-lg-2
+    .row
+      %p
+        = image_tag(avatar_url( @user ))
+  .col-lg-4
+    .row
+      %p
+        .col-lg-2
+          %b=User.human_attribute_name :name
+        .col-lg-4
+          = @user.name
+    .row
+      %p
+        .col-lg-2
+          %b=User.human_attribute_name :email
+        .col-lg-4
+          = @user.email
+    .row
+      %p
+        .col-lg-2
+          %b=User.human_attribute_name :roles_name
+        .col-lg-4
+          = @user.roles_name.collect{|role| role.titleize}.join(', ') if @user.roles_name
+    .row
+      .col-lg-6
+        %br
+        = link_to_if current_user.has_role?(:admin), 'Edit', edit_user_path(@user)
+        \|
+        = link_to 'Back', users_path
+        %br
+        %br
+
+  .col-lg-6
+    .row
+      %h4 reserved
+    .row
+      content
+
