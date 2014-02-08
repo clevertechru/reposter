@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :user_signed_in?
   helper_method :correct_user?
+  helper_method :current_user_role
 
   private
     def current_user
@@ -28,6 +29,11 @@ class ApplicationController < ActionController::Base
       if !current_user
         redirect_to root_url, :alert => 'You need to sign in for access to this page.'
       end
+    end
+
+    # get first user role
+    def current_user_role
+      current_user.roles.first.name.to_sym if current_user && current_user.roles.first
     end
 
 
