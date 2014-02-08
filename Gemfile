@@ -8,6 +8,8 @@ group :assets do
 end
 gem 'jquery-rails'
 gem 'bootstrap-sass', '>= 3.0.0.0'
+gem 'nested_form'
+gem 'bootstrap_forms'
 gem 'cancan'
 gem 'haml-rails'
 gem 'mysql2'
