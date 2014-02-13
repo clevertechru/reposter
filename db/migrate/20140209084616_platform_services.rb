@@ -1,5 +1,5 @@
 class PlatformServices < ActiveRecord::Migration
-  def change
+  def up
     create_table :platform_services do |t|
       t.string :title
       t.string :api_model
@@ -10,9 +10,7 @@ class PlatformServices < ActiveRecord::Migration
     end
 
     add_index :platform_services, [:id, :enabled]
-  end
 
-  def up
     api = [
         ['site', nil],
         ['twitter',       'Api::Twitter'],
@@ -22,8 +20,14 @@ class PlatformServices < ActiveRecord::Migration
         ['odnoklassniki', 'Api::Odnoklassniki'],
         ['mailru',        'Api::MyMailRu']
     ]
-    api.each do |row|
+    puts "Import [#{api.length}] platform type of service to platform_services table"
+    api.each_with_index do |row, index|
       PlatformService.find_or_create_by_title({title: row[0], api_model: row[1]}, :without_protection => true)
+      puts "[#{index + 1}] #{row[0]} #{row[1]} "
     end
+  end
+
+  def down
+    drop_table :platform_services
   end
 end

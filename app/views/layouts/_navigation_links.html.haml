@@ -3,6 +3,7 @@
     %li=link_to t('navigation.users'),      users_path if can? :read, User
     %li=link_to t('navigation.platforms'),  platforms_path if can? :read, Platform
     %li=link_to t('navigation.categories'), platform_categories_path if can? :read, PlatformCategory
+    -#%li=link_to t('navigation.services'),   platform_services_path if can? :read, PlatformService
     -#%li.dropdown
     -#  %a.dropdown-toggle{href: '#', 'data-toggle' => 'dropdown'}
     -#    =t('navigation.queue')

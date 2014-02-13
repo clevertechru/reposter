@@ -5,7 +5,7 @@
   = f.collection_select :category_id, PlatformCategory.all, :id, :title, {}, class: 'form-control'
   = f.select :type_id, platform_types_list, {}, class: 'form-control'
   = f.text_field :token, class: 'form-control'
-  = f.text_field :service_id, class: 'form-control'
+  = f.collection_select :service_id, PlatformService.all, :id, :title, {}, class: 'form-control'
   = f.text_field :state, class: 'form-control'
   %br
   = f.actions
