@@ -1,0 +1,21 @@
+.col-md-6
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        = t('platform_categories.title')
+        = link_to 'New Platform category', new_platform_category_path, class: 'btn btn-xs btn-default pull-right'
+    .panel-body
+      %table.table.table-condensed
+        %tr
+          %th= PlatformCategory.human_attribute_name :title
+          %th= PlatformCategory.human_attribute_name :pos
+          %th
+
+        - @platform_categories.each do |platform_category|
+          %tr
+            %td= platform_category.title
+            %td= platform_category.pos
+            %td
+              = link_to t('platform_categories.show'), platform_category
+              = link_to '', edit_platform_category_path(platform_category), class: 'glyphicon glyphicon-edit', title: t('platform_categories.edit')
+              = link_to '', platform_category, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'glyphicon glyphicon-trash', title: t('platform_categories.destroy')

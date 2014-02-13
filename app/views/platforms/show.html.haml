@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @platform.user_id
+%p
+  %b Title:
+  = @platform.title
+%p
+  %b Description:
+  = @platform.description
+%p
+  %b Category:
+  = @platform.category_id
+%p
+  %b Type:
+  = @platform.type_id
+%p
+  %b Token:
+  = @platform.token
+%p
+  %b Service:
+  = @platform.service_id
+%p
+  %b State:
+  = @platform.state
+
+= link_to 'Edit', edit_platform_path(@platform)
+\|
+= link_to 'Back', platforms_path

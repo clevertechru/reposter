@@ -1,0 +1,35 @@
+.col-md-12
+  .panel.panel-default
+    .panel-heading
+      .panel-title= t('platforms.title')
+    .panel-body
+      %table.table.table-condensed
+        %tr
+          %th= Platform.human_attribute_name :user
+          %th= Platform.human_attribute_name :title
+          %th= Platform.human_attribute_name :description
+          %th= Platform.human_attribute_name :category
+          %th= Platform.human_attribute_name :type
+          %th= Platform.human_attribute_name :token
+          %th= Platform.human_attribute_name :service
+          %th= Platform.human_attribute_name :state
+          %th
+
+        - @platforms.each do |platform|
+          %tr
+            %td= platform.user_id
+            %td= platform.title
+            %td= platform.description
+            %td= platform.category_id
+            %td= platform.type_id
+            %td= platform.token
+            %td= platform.service_id
+            %td= platform.state
+            %td
+              = link_to 'Show', platform
+              = link_to '', edit_platform_path(platform), class: 'glyphicon glyphicon-edit', title: t('platform_categories.edit')
+              = link_to '', platform, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'glyphicon glyphicon-trash', title: t('platform_categories.destroy')
+
+      %br
+
+      = link_to 'New Platform', new_platform_path, class: 'btn btn-primary'

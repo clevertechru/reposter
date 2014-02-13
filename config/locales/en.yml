@@ -4,3 +4,18 @@
 en:
   hello: "Hello world"
   login: "Login"
+
+  platforms:
+    title: 'Platforms'
+    show: 'Show'
+    edit: 'Edit'
+    destroy: 'Destroy'
+    types:
+      destination: 'Destination'
+      source:      'Source'
+
+  platform_categories:
+    title: 'Platform categories'
+    show: 'Show'
+    edit: 'Edit'
+    destroy: 'Destroy'
