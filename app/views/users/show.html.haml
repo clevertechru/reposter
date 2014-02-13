@@ -1,39 +1,38 @@
 .row
-  .col-lg-2
-    .row
-      %p
-        = image_tag(avatar_url( @user ))
-  .col-lg-4
-    .row
-      %p
-        .col-lg-2
-          %b=User.human_attribute_name :name
-        .col-lg-4
-          = @user.name
-    .row
-      %p
-        .col-lg-2
-          %b=User.human_attribute_name :email
-        .col-lg-4
-          = @user.email
-    .row
-      %p
-        .col-lg-2
-          %b=User.human_attribute_name :roles_name
-        .col-lg-4
-          = @user.roles_name.collect{|role| role.titleize}.join(', ') if @user.roles_name
-    .row
-      .col-lg-6
-        %br
-        = link_to_if current_user.has_role?(:admin), 'Edit', edit_user_path(@user)
-        \|
-        = link_to 'Back', users_path
-        %br
-        %br
-
   .col-lg-6
-    .row
-      %h4 reserved
-    .row
-      content
+    .panel.panel-default
+      .panel-body
+        .col-lg-2
+          .row
+            %p
+              = image_tag(avatar_url( @user ))
+        .col-lg-10
+          %table.table
+            %tr
+              %td
+                %b= User.human_attribute_name :name
+              %td
+                = @user.name
+            %tr
+              %td
+                %b= User.human_attribute_name :email
+              %td
+                = @user.email
+            %tr
+              %td
+                %b= User.human_attribute_name :roles_name
+              %td
+                = @user.roles_name.collect{|role| role.titleize}.join(', ') if @user.roles_name
+            %tr
+              %td
+                = link_to_if current_user.has_role?(:admin), 'Edit', edit_user_path(@user)
+              %td
+                = link_to 'Back', users_path
+  .col-lg-6
+    .panel.panel-default
+      .panel-heading
+        .panel-title
+          =t('platforms.get_my_public')
+      .panel-body
+        content
 
