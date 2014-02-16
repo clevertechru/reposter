@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
   helper_method :correct_user?
   helper_method :current_user_role
+  helper_method :user_omniauth_authorize_path
 
   private
     def current_user
@@ -34,6 +35,11 @@ class ApplicationController < ActionController::Base
     # get first user role
     def current_user_role
       current_user.roles.first.name.to_sym if current_user && current_user.roles.first
+    end
+
+    #omniauth path
+    def user_omniauth_authorize_path(provider)
+      "/auth/#{provider}"
     end
 
 

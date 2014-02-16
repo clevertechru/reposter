@@ -23,7 +23,7 @@
           %td= user.roles.first.name.titleize unless user.roles.first.nil?
           %td
             - if can?(:manage, User)
-              %a.btn.btn-mini{"data-toggle" => "modal", :href => "#role-options-#{user.id}", :type => "button"} Change role
-              = render user
+              %a.btn.btn-xs.btn-warning{"data-toggle" => "modal", :href => "#role-options-#{user.id}", :type => "button"} Change role
+              = render 'role', user: user
           %td
-            =link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini') if can? :manage, User
+            =link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-xs btn-danger') if can? :manage, User

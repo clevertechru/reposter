@@ -10,7 +10,7 @@
     -#  %ul.dropdown-menu
     -#    %li=link_to t('navigation.delayed_job'), delayed_job_path
     -#    %li=link_to t('navigation.dj_mon'), dj_mon_path
-%ul.nav.navbar-nav.pull-right
+%ul.nav.navbar-nav.navbar-right
   - if user_signed_in?
     %li
       = link_to user_path(current_user) do
@@ -19,8 +19,16 @@
     %li= link_to t('logout'), signout_path
 
   - else
-    %li.pull-right
-      =link_to signin_path do
+    %li
+      = link_to "Sign in with", "#"
+    %li
+      = link_to " Facebook", user_omniauth_authorize_path(:facebook)
+    %li
+      = link_to " Vkontakte", user_omniauth_authorize_path(:vkontakte)
+    %li
+      = link_to " github", user_omniauth_authorize_path(:github)
+    %li
+      =link_to user_omniauth_authorize_path(:google_oauth2) do
         =image_tag 'google.jpg', width: '20px', height: '20px', style: 'float: left;'
         &nbsp;
         =t('login')
