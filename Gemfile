@@ -22,7 +22,10 @@ gem 'omniauth-vkontakte'
 gem 'omniauth-odnoklassniki'
 gem 'rolify'
 gem 'simple_form'
-#gem 'vkontakte_api', '~> 1.3', path: 'lib/vkontakte_api', require: 'vkontakte_api'
+gem 'faraday', '~> 0.9', path: 'lib/gems/faraday'
+gem 'faraday_middleware', '~> 0.9', git: 'git@github.com:clevertechru/faraday_middleware.git', branch: 'faraday-0.9'
+gem 'faraday_middleware-parse_oj', path: 'lib/gems/faraday_middleware-parse_oj'
+gem 'vkontakte_api', '~> 1.3', path: 'lib/gems/vkontakte_api'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
