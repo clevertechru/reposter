@@ -15,3 +15,34 @@
 .nowrap {
   white-space: nowrap;
 }
+
+.b-teaser_share .b-share {
+  display: block;
+  direction: rtl;
+}
+.b-teaser_share .b-share-icon_vkontakte {
+  background: 0 0;
+}
+
+.b-teaser_share .b-share-icon_vkontakte {
+  background: -20px 0;
+}
+
+.b-teaser_share .b-share-icon_twitter {
+  background: -40px 0;
+}
+
+.b-teaser_share .b-share-icon_odnoklassniki {
+  background: -80px 0;
+}
+
+.b-teaser_share .b-share-icon, .b-teaser_share .b-share__text {
+  background: url('social_icons.png') 100% 0 no-repeat;
+}
+
+.b-teaser_share .b-share-icon {
+  float: none;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
