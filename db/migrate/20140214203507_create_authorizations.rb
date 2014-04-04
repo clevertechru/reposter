@@ -4,6 +4,8 @@ class CreateAuthorizations < ActiveRecord::Migration
       t.integer :user_id
       t.string :provider
       t.string :uid
+      t.string :token
+      t.string :token_expires_at, :default => 0
 
       t.timestamps
     end

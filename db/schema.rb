@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(:version => 20140214203507) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "token"
+    t.string   "token_expires_at", :default => "0"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "platform_categories", :force => true do |t|
