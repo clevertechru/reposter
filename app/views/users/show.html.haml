@@ -25,6 +25,10 @@
                 = @user.roles_name.collect{|role| role.titleize}.join(', ') if @user.roles_name
             %tr
               %td
+                %b Token
+              %td= text_field_tag :token, @user.authorizations.map(&:token), readonly: true, style: 'width: 100%'
+            %tr
+              %td
                 = link_to_if current_user.has_role?(:admin), 'Edit', edit_user_path(@user)
               %td
                 = link_to 'Back', users_path
@@ -34,5 +38,20 @@
         .panel-title
           =t('platforms.get_my_public')
       .panel-body
-        content
+        %table.table
+          %tr
+            %th GID
+            %th name
+            %th alias
+            %th type
+            %th members
+            %th
+          - @vk_user_groups.each do |item|
+            %tr
+              %td= item.gid
+              %td= item.name
+              %td= item.screen_name
+              %td= item.type
+              %td= item.members_count
+              %td= item.is_closed == 0 ? 'private' : 'public'
 

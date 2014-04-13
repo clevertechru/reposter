@@ -1,3 +1,4 @@
+require File.expand_path('lib/gems/socialgate/lib/socialgate')
 class UsersController < ApplicationController
   load_and_authorize_resource
 
@@ -19,8 +20,14 @@ class UsersController < ApplicationController
   end
 
 
-def show
+  def show
     @user = User.find(params[:id])
+
+    auth = @user.authorizations.find_by_provider('vkontakte')
+
+    @client = SocialGate::Vkontakte::Client.new(auth.token)
+    @vk_user_groups = @client.groups.user_admin_groups(auth.uid)
+
   end
 
 end
